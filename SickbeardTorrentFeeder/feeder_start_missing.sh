@@ -1,1 +1,1 @@
-/volume1/@appstore/python/bin/python /volume1/scripts/TransmissionCleanup/TransmissionCleanup.py > /volume1/scripts/TransmissionCleanup/cleanup.log
+/volume1/@appstore/python/bin/python /volume1/scripts/SickbeardTorrentFeeder/SickbeardTorrentFeeder.py -m > /volume1/scripts/SickbeardTorrentFeeder/feeder_missing.log
