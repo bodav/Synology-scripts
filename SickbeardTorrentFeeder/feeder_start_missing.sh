@@ -1,0 +1,1 @@
+/volume1/@appstore/python/bin/python /volume1/scripts/TransmissionCleanup/TransmissionCleanup.py > /volume1/scripts/TransmissionCleanup/cleanup.log
