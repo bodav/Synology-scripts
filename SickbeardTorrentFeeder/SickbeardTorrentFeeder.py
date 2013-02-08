@@ -16,7 +16,7 @@ def get_missed_episodes():
 	api = SickbeardApi(SICKBEARD_API_URL, SICKBEARD_API_KEY)
 	missed = []
 	for episode in api.get_future_missed()["data"]["missed"]:
-		missed.append(WantedEpisode(episode["show_name"], episode["season"], 
+		missed.append(WantedEpisode(episode["show_name"].replace("'", ""), episode["season"], 
 			episode["episode"], episode["quality"]))
 
 	print "Found {0} missed episodes".format(len(missed))
@@ -37,7 +37,7 @@ def get_backlogged_episodes():
 			for episodeKey in seasons[seasonKey]:
 				if seasons[seasonKey][episodeKey]["status"] == "Wanted":
 					print "Found wanted episode: S{0}E{1}".format(seasonKey, episodeKey)
-					backlogged.append(WantedEpisode(shows[showKey]["show_name"], seasonKey, episodeKey, 
+					backlogged.append(WantedEpisode(shows[showKey]["show_name"].replace("'", ""), seasonKey, episodeKey, 
 						seasons[seasonKey][episodeKey]["quality"]))
 
 	return backlogged
