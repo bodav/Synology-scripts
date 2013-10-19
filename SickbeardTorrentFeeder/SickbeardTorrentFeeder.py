@@ -3,11 +3,11 @@ import xml.etree.ElementTree as ET
 from StringIO import StringIO
 
 #Config
-SICKBEARD_API_URL = "http://192.168.0.105:8081/api/"
+SICKBEARD_API_URL = "http://vortex.local:8081/api/"
 SICKBEARD_API_KEY = "7ed841267291e081f6981b5918e8c8a3"
 EZTV_FEED_URL = "http://feeds.feedburner.com/eztv-rss-atom-feeds?format=xml"
 KATPH_BASE_URL = "http://kat.ph/usearch/"
-TRANSMISSION_IP = "192.168.0.105"
+TRANSMISSION_HOST = "vortex.local"
 TRANSMISSION_PORT = 9091
 
 
@@ -177,7 +177,7 @@ def get_katph_feed(show_name, season, episode):
 
 def send_to_transmission(url):
 	print "Sending to transmission: " + url
-	tc = transmissionrpc.Client(address=TRANSMISSION_IP, port=TRANSMISSION_PORT)
+	tc = transmissionrpc.Client(address=TRANSMISSION_HOST, port=TRANSMISSION_PORT)
 
 	try:
 		tc.add_torrent(url)
