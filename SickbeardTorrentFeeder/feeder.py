@@ -61,7 +61,7 @@ def download(uri):
 if __name__ == "__main__":
     try:
         while True:
-            #find_missed_episodes()
+            find_missed_episodes()
             find_backlogged_episodes()
 
             print("Going to sleep for {0}secs".format(config.SLEEP_TIME_SECS))
