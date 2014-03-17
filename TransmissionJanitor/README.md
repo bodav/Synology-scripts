@@ -6,4 +6,4 @@ Finished as in where progress = 100%
 
 ## REQUIREMENTS ##
 
-* transmissionrpc `pip install transmissionrpc`
+* transmissionrpc

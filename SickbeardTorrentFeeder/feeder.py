@@ -1,5 +1,10 @@
-import transmissionrpc, config, feeds, sickbeard, time
+import time
 
+import transmissionrpc
+
+import config
+import feeds
+import sickbeard
 
 
 def find_missed_episodes():

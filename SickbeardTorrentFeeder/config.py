@@ -5,10 +5,10 @@ SICKBEARD_API_KEY = "7ed841267291e081f6981b5918e8c8a3"
 
 #FEEDS
 EZTV_FEED_URL = "http://feeds.feedburner.com/eztv-rss-atom-feeds?format=xml"
-EZTV_KAT_FEED_URL = "http://kickass.to/usearch/category%3Atv%20user%3Aeztv/{0}/?rss=1"
-ETTV_FEED_URL = "http://kickass.to/usearch/category%3Atv%20user%3Aettv/{0}/?rss=1"
-VTV_FEED_URL = "http://kickass.to/usearch/category%3Atv%20user%3Avtv/{0}/?rss=1"
-KATPH_BASE_SEARCH_URL = "http://kat.ph/usearch/"
+EZTV_KAT_FEED_URL = "http://kickass.to/usearch/user%3Aeztv/{0}/?rss=1"
+ETTV_FEED_URL = "http://kickass.to/usearch/user%3Aettv/{0}/?rss=1"
+VTV_FEED_URL = "http://kickass.to/usearch/user%3Avtv/{0}/?rss=1"
+KATPH_BASE_SEARCH_URL = "http://kickass.to/usearch/"
 
 #XML
 NAMESPACES = {"torrent": "http://xmlns.ezrss.it/0.1/"}

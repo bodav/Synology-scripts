@@ -40,18 +40,18 @@ def get_eztv_feed():
     return items
 
 def get_katph_eztv_feed():
-    items = _get_katph_feed(config.EZTV_KAT_FEED_URL, "KATPH.EZTV")
-    print("Total items in katph eztv feed: {0}".format(len(items)))
+    items = _get_katph_feed(config.EZTV_KAT_FEED_URL, "kickass.EZTV")
+    print("Total items in kickass.to eztv feed: {0}".format(len(items)))
     return items
 
 def get_katph_ettv_feed():
-    items = _get_katph_feed(config.ETTV_FEED_URL, "KATPH.ETTV")
-    print("Total items in katph ettv feed: {0}".format(len(items)))
+    items = _get_katph_feed(config.ETTV_FEED_URL, "kickass.ETTV")
+    print("Total items in kickass.to ettv feed: {0}".format(len(items)))
     return items
 
 def get_katph_vtv_feed():
-    items = _get_katph_feed(config.VTV_FEED_URL, "KATPH.VTV")
-    print("Total items in katph vtv feed: {0}".format(len(items)))
+    items = _get_katph_feed(config.VTV_FEED_URL, "kickass.VTV")
+    print("Total items in kickass.to vtv feed: {0}".format(len(items)))
     return items
 
 def _get_katph_feed(url, source):
@@ -72,7 +72,7 @@ def _get_katph_feed(url, source):
             page += 1
 
     except Exception as err:
-        print("Error getting katph feed {0}, Error: {1}".format(url, err))
+        print("Error getting kickass.to feed {0}, Error: {1}".format(url, err))
 
     return items
 
@@ -80,10 +80,13 @@ def _get_katph_feed(url, source):
 
 def search_katph_feed(showname, season, episode):
     providers = " OR ".join(config.SEARCH_ALLOWED_PROVIDERS)
-    args = "{0} {1} category:tv season:{2} episode:{3}/?rss=1".format(
-        showname, providers, season, episode)
+
+    args = "{0} S{1}E{2} {3}/?rss=1".format(
+        showname, season.rjust(1, '0'),
+        episode.rjust(1, '0'), providers)
+
     url = "{0}{1}".format(config.KATPH_BASE_SEARCH_URL, args)
-    print "KAT.PH search feed url: {0}".format(url)
+    print "kickass.to search feed url: {0}".format(url)
 
     items = []
 
@@ -95,9 +98,9 @@ def search_katph_feed(showname, season, episode):
             items.append(FeedItem(item.find("title").text, 
                                   item.find("torrent:magnetURI", 
                                             namespaces=config.NAMESPACES).text,
-                                  "KAT.PH search"))
+                                  "kickass.to search"))
     except Exception as ex:
-        print("Error searching kat.ph, Error: {0}".format(ex))
+        print("Error searching kickass.to, Error: {0}".format(ex))
 
     return items
 

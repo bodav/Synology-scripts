@@ -1,29 +1,31 @@
-import transmissionrpc, time
+import time
+
+import transmissionrpc
 
 HOST = "nas.local"
 PORT = 9091
 SLEEP_SEC = 60
-IGNORE_PATH = "/volume1/transmission/download/movies/" #Couchpotato downloads
 
-while True:
-    print("Connecting to transmission...")
-    tc = transmissionrpc.Client(address=HOST, port=PORT)
+try:
+    while True:
+        print("Connecting to transmission...")
+        tc = transmissionrpc.Client(address=HOST, port=PORT)
 
-    print("Getting torrents...")
-    torrents = tc.get_torrents()
+        print("Getting torrents...")
+        torrents = tc.get_torrents()
 
-    print("Processing torrents...")
+        print("Processing torrents...")
 
-    for tor in torrents:
-        print("{0}, progress: {1}".format(tor.name, tor.progress))
-        progress = float(tor.progress)
+        for tor in torrents:
+            print("{0}, progress: {1}".format(tor.name, tor.progress))
+            progress = float(tor.progress)
 
-        if tor.downloadDir == IGNORE_PATH:
-            print("{0} is handled by Couchpotato, ignoring...".format(tor.name))
-        elif progress == 100.0:
-            print("Torrent is done removing...")
-            tc.remove_torrent(tor.id)
+            if progress == 100.0:
+                print("Torrent is done removing...")
+                tc.remove_torrent(tor.id)
 
-    print("All done")
+        print("All done")
 
-    time.sleep(SLEEP_SEC)
+        time.sleep(SLEEP_SEC)
+except KeyboardInterrupt:
+    print("Interrupted, exiting...")
