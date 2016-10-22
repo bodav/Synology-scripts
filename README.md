@@ -1,7 +1,7 @@
 ## About ##
 
-Scripts running on my Synology NAS  
+Shell scripts running on my Synology NAS  
 
 * TransmissionJanitor - removes finished torrents
-* SickbeardTorrentFeeder - feeds missing/backlogged torrents to SickBeard
-* Misc - shell scripts
+* unrar_all - cron script to unrar downloaded files
+* syno-symlinker - symlink packages to /bin/
