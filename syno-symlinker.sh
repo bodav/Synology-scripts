@@ -19,3 +19,6 @@ ln -s /volume1/\@appstore/py3k/usr/local/bin/pip3.5 /bin/pip3.5
 
 #youtube-dl (python 3.5)
 ln -s /volume1/\@appstore/py3k/usr/local/bin/youtube-dl /bin/youtube-dl
+
+#ffprobe
+ln -s /volume1/\@appstore/ffmpeg/bin/ffprobe /bin/ffprobe
